@@ -7,6 +7,6 @@ public class LotteryMega4 extends ADigitalLottery {
         super(date, qrCode, idSaleAgent, numberString);
     }
     public String isType() {
-        return "Mega4";
+        return "mega4";
     }
 }

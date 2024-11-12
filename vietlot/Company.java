@@ -135,25 +135,37 @@ public class Company {
         }
         return aPrize;
     }
-//    public ADigitalLottery checkPrize(ArrayList<SaleAgent> listSaleAgents , ArrayList<APrize> listOfPrizes, String type) {
-//        ADigitalLottery result = null;
-//        for (APrize aPrize : listOfPrizes) {
-//            if (aPrize.isType().equals(type)) {
-//                for (AResult aResult : aPrize.getListOfResult()) {
-//                    for(SaleAgent saleAgent : listSaleAgents) {
-//                        for (ADigitalLottery lottery : saleAgent.getListLottery()){
-//                            if(lottery.isType().equals(type)) {
-//                               if(Arrays.equals(aResult.getSpecialPrize(), aResult.getSpecialPrize())){
-//                                   result = lottery;
-//                               }
-//                            }
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//        return result;
-//    }
+    //do ve so
+    public ADigitalLottery checkPrize(ArrayList<SaleAgent> listSaleAgents , ArrayList<APrize> listOfPrizes, String type) {
+        ADigitalLottery result = null;
+        APrize aPrize = null;
+        //lay ra giai thuong cung loai
+        for (APrize prize : listOfPrizes) {
+            if (prize.isType().equals(type)) {
+                aPrize = prize;
+            }
+        }
+        //lay danh sach ve cung loai
+        ArrayList<ADigitalLottery> listTickAsType = new ArrayList<>();
+        for (SaleAgent agent : listSaleAgents) {
+            for (ADigitalLottery tick : agent.getListLottery()){
+                if(tick.isType().equals(type)){
+                    listTickAsType.add(tick);
+                }
+            }
+        }
+        //so sanh
+       for (AResult ketqua : aPrize.getListOfResult()) {
+           for (ADigitalLottery tick : listTickAsType) {
+               if(Arrays.equals(tick.getNumberString(), ketqua.getFirstPrize()) // so sanh ve dai li da ban voi ket qua
+                       || Arrays.equals(tick.getNumberString(), ketqua.getSecondPrize())
+                            || Arrays.equals(tick.getNumberString(), ketqua.getSecondPrize())){
+                   result = tick;
+               }
+           }
+       }
+        return result;
+    }
 
     public static void main(String[] args) {
         //dai li
@@ -162,6 +174,8 @@ public class Company {
         SaleAgent agent1 =  new SaleAgent("123", "Thu Duc", listLottery1);
         SaleAgent agent2 =  new SaleAgent("456", "Dong Nai", listLottery2);
         // in ve ngau nhien
+        System.out.println("In so ngau nhien: \n"+ agent1.createRandomLottery());
+        System.out.println("/////////////////////////");
         ADigitalLottery veSo1 = agent1.createRandomLottery();
         ADigitalLottery veSo2 = agent1.createRandomLottery();
         ADigitalLottery veSo3 = agent2.createRandomLottery();
@@ -171,8 +185,9 @@ public class Company {
         // in ve theo yeu cau
         String[] numberString = {"1,3,4,2"};
         ADigitalLottery veSo4 = agent2.printCustomerRequest("mega4", numberString);
+        System.out.println("in theo yeu cau: \n"+agent2.printCustomerRequest("mega4", numberString));
         agent2.getListLottery().add(veSo4);
-        ////////////////////////////////
+        System.out.println("/////////////////////////");
         //Giai thuong
         ArrayList<SaleAgent> listSaleAgents = new ArrayList<>();
         listSaleAgents.add(agent1);
@@ -189,10 +204,9 @@ public class Company {
 //        System.out.println("result of prize lottery 6_45: \n"+company.createResultPrize("6_45"));
 //        System.out.println("result of prize lottery 6_55: \n"+company.createResultPrize("6_55"));
 //        System.out.println("result of prize lottery mega4: "+company.createResultPrize("mega4"));
-        System.out.println("giai thuong: "+company.getResultPrizeByDate("Tue Nov 12 2024", "6_45"));
-        System.out.println(company.checkPrize(listSaleAgents, listOfPrizes, "mega4"));
-
-
+        System.out.println("lay ra giai thuong bang Date: \n"+company.getResultPrizeByDate("Tue Nov 12 2024", "mega4"));
+        System.out.println("Do ve so: ");
+        System.out.println(company.checkPrize(listSaleAgents, listOfPrizes, "mega4")==null?"khong co ve nao trung":"chuc mung: "+company.checkPrize(listSaleAgents, listOfPrizes, "mega4"));
     }
 
 }
