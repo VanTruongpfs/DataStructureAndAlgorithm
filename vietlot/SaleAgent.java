@@ -72,6 +72,7 @@ public class SaleAgent {
         }else{
             veSo = new LotteryMega4(today, qrCode, idSaleAgent, numberString);
         }
+        listLottery.add(veSo);
         return veSo;
     }
 
@@ -105,21 +106,4 @@ public class SaleAgent {
         return "Mã số: "+result;
     }
 
-    public static void main(String[] args) {
-        ArrayList<ADigitalLottery> listLottery = new ArrayList<>();
-        SaleAgent agent =  new SaleAgent("123", "Thu Duc", listLottery);
-        // in ve ngau nhien
-        System.out.println("in ve ngau nhien");
-        ADigitalLottery veSo1 = agent.createRandomLottery();
-        ADigitalLottery veSo2 = agent.createRandomLottery();
-        ADigitalLottery veSo3 = agent.createRandomLottery();
-        agent.getListLottery().add(veSo1);
-        agent.getListLottery().add(veSo2);
-        agent.getListLottery().add(veSo3);
-        System.out.println(agent.toString(agent));
-        // in ve theo yeu cau
-        String[] numberString = {"1,3,4,2"};
-        ADigitalLottery veSo4 = agent.printCustomerRequest("mega4", numberString);
-        System.out.println("in ve theo yeu cau: \n"+ veSo4);
-    }
 }
