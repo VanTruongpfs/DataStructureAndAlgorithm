@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 public class AResult {
     private String date;
-    private ArrayList<String> specialPrize = new ArrayList<>();
-    private ArrayList<String> firstPrize = new ArrayList<>();
-    private ArrayList<String> secondPrize = new ArrayList<>();
-    public AResult(String date, ArrayList<String> specialPrize, ArrayList<String> firstPrize, ArrayList<String> secondPrize) {
+    private String[] specialPrize;
+    private String[] firstPrize;
+    private String[] secondPrize;
+    public AResult(String date, String[] specialPrize, String[] firstPrize, String[] secondPrize) {
         this.date = date;
         this.specialPrize = specialPrize;
         this.firstPrize = firstPrize;
@@ -16,23 +16,33 @@ public class AResult {
     public String getDate() {
         return date;
     }
-    public ArrayList<String> getSpecialPrize() {
+    public String[] getSpecialPrize() {
         return specialPrize;
     }
-    public ArrayList<String> getFirstPrize() {
+    public String[] getFirstPrize() {
         return firstPrize;
     }
-    public ArrayList<String> getSecondPrize() {
+    public String[] getSecondPrize() {
         return secondPrize;
     }
-
+    public static String display(String[] array) {
+        String result = "[";
+        for (int i = 0; i < array.length; i++) {
+            if(i==array.length-1) {
+                result+= array[i]+"]";
+            }else {
+                result+= array[i] +",";
+            }
+        }
+        return result;
+    }
     @Override
     public String toString() {
-        return "AResult{" +
+        return "{" +
                 "date='" + date + '\'' +
-                ", specialPrize=" + specialPrize +
-                ", firstPrize=" + firstPrize +
-                ", secondPrize=" + secondPrize +
+                ", specialPrize: " + display(specialPrize) +
+                ", firstPrize: " + display(firstPrize) +
+                ", secondPrize: " + display(secondPrize) +
                 '}';
     }
 }

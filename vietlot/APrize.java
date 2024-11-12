@@ -31,9 +31,9 @@ public abstract class APrize {
     public String toString() {
         return "APrize{" +
                 "amount=" + amount + "\n"+
-                ", name='" + name + '\'' +"\n"+
-                ", rule='" + rule + '\'' +"\n"+
-                ", listOfResult=" + listOfResult +
+                " name='" + name + '\'' +"\n"+
+                " rule='" + rule + '\'' +"\n"+
+                " listOfResult: " + listOfResult +
                 '}';
     }
 }

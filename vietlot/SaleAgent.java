@@ -84,16 +84,16 @@ public class SaleAgent {
     public ArrayList<ADigitalLottery> getListLottery() {
         return listLottery;
     }
-    public static String toString(SaleAgent saleAgent) {
-        String listTicks ="";
-        int counter = 1;
-        for (ADigitalLottery d : saleAgent.getListLottery()) {
-            listTicks += counter+"."+d.toString(d)+"\n";
-            counter++;
-        }
-        return saleAgent.getId()+" "+saleAgent.getAddress()+"\nlist:\n"+ listTicks;
+    public String toString(SaleAgent saleAgent) {
+//        String listTicks ="";
+//        int counter = 1;
+//        for (ADigitalLottery d : saleAgent.getListLottery()) {
+//            listTicks += counter+"."+d.toString(d)+"\n";
+//            counter++;
+//        }
+        return saleAgent.getId()+" "+saleAgent.getAddress()+"\nlist:\n"+ getListLottery();
     }
-    public static String display(String[] array) {
+    public String display(String[] array) {
         String result = "[";
         for (int i = 0; i < array.length; i++) {
             if(i==array.length-1) {
@@ -120,6 +120,6 @@ public class SaleAgent {
         // in ve theo yeu cau
         String[] numberString = {"1,3,4,2"};
         ADigitalLottery veSo4 = agent.printCustomerRequest("mega4", numberString);
-        System.out.println("in ve theo yeu cau: \n"+ADigitalLottery.toString(veSo4));
+        System.out.println("in ve theo yeu cau: \n"+ veSo4);
     }
 }

@@ -24,8 +24,8 @@ public abstract class ADigitalLottery {
     public String getIdSaleAgent() {
         return idSaleAgent;
     }
-    public String getNumberString() {
-        return display(numberString);
+    public String[] getNumberString() {
+        return numberString;
     }
     public static String display(String[] array) {
         String result = "[";
@@ -38,8 +38,8 @@ public abstract class ADigitalLottery {
         }
         return "Mã số: "+result;
     }
-    public static String toString(ADigitalLottery aDigitalLottery){
-        return aDigitalLottery.getDate() +""+aDigitalLottery.getQrCode()+""+aDigitalLottery.getIdSaleAgent()+""+aDigitalLottery.getNumberString();
+    public String toString(){
+        return getDate() +""+getQrCode()+""+getIdSaleAgent()+""+display(getNumberString());
     }
     public static void main(String[] args) {
 
