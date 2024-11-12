@@ -8,6 +8,16 @@ public class SaleAgent {
     private String id;
     private String address;
     private ArrayList<ADigitalLottery> listLottery = new ArrayList<>();
+
+    /**
+     *
+     * @param id
+     * @param address
+     * @param listLottery
+     * ve so 6 cap 01-45: 6_45
+     * ve so 6 cap 01-55: 6_55
+     * ve so mega 4 cap 0-9: mega4
+     */
     public SaleAgent(String id, String address, ArrayList<ADigitalLottery> listLottery) {
         this.id = id;
         this.address = address;
@@ -30,7 +40,7 @@ public class SaleAgent {
     // create a digital random lottery
     public ADigitalLottery createRandomLottery() {
         Random rd = new Random();
-        String[] listLottery = {"6_45", "6_55","mega4"};
+        String[] listLottery = {"6_45", "6_55","mega4"};// những loại vé số
         String type = listLottery[rd.nextInt(listLottery.length)];
         String[] numberString =createRandomNumberString(type); // number String
         Date date = new Date();
@@ -47,6 +57,7 @@ public class SaleAgent {
         }
         return veSo;
     }
+    //print customer request
     public ADigitalLottery printCustomerRequest(String type, String[] numberString) {
         Random rd = new Random();
         Date date = new Date();
@@ -105,7 +116,7 @@ public class SaleAgent {
         agent.getListLottery().add(veSo1);
         agent.getListLottery().add(veSo2);
         agent.getListLottery().add(veSo3);
-    System.out.println(agent.toString(agent));
+        System.out.println(agent.toString(agent));
         // in ve theo yeu cau
         String[] numberString = {"1,3,4,2"};
         ADigitalLottery veSo4 = agent.printCustomerRequest("mega4", numberString);
