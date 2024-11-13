@@ -175,7 +175,6 @@ public class Company {
             for (ADigitalLottery ticket : agent.getListLottery()) {
                 if (ticket.isType().equals(ticketType)) {
                     for (APrize prize : listOfPrizes) {
-                        if (prize.isType().equals(ticketType)) {
                             for (AResult result : prize.getListOfResult()) {
                                 if (Arrays.equals(ticket.getNumberString(), result.getFirstPrize()) ||
                                         Arrays.equals(ticket.getNumberString(), result.getSecondPrize()) ||
@@ -185,7 +184,6 @@ public class Company {
                                     break;
                                 }
                             }
-                        }
                     }
                 }
             }
