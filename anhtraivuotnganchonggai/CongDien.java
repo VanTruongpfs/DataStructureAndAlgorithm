@@ -4,6 +4,7 @@ package Exercise1.src.anhtraivuotnganchonggai;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.TreeSet;
 
 public class CongDien {
     private String id;
@@ -79,6 +80,32 @@ public class CongDien {
     public void setBangDiemHoaLucCaNhan(HashMap<String, Integer> bangDiemHoaLucCaNhan) {
         this.bangDiemHoaLucCaNhan = bangDiemHoaLucCaNhan;
     }
-    //loại thành viên
+    //them danh sach cac nhom
+    public void themNhom(Nhom nhom, ArrayList<Nhom> dsNhom) {
+        if(!dsNhom.contains(nhom)) {
+            dsNhom.add(nhom);
+        }
+    }
+    //danh sach anh tai co diem cao nhat
+    public ArrayList<AnhTai> getAnhTaiDiemCaoNhatCuaMoiNhom(ArrayList<Nhom> dsNhom) {
+        TreeSet<AnhTai> dsAnhTaiDaSort = new TreeSet<>();
+        ArrayList<AnhTai> dsAnhTaiDiemCaoNhatMoiNhom = new ArrayList<>();
+        for (Nhom nhom : dsNhom) {
+            for (AnhTai anhTai : nhom.getDsAnhTai()) {
+                dsAnhTaiDaSort.add(anhTai);
+            }
+            dsAnhTaiDiemCaoNhatMoiNhom.add(dsAnhTaiDaSort.first());
+            dsAnhTaiDaSort.clear();
+        }
+        return dsAnhTaiDiemCaoNhatMoiNhom;
+    }
+    //cong diem hoa luc cho anh tai co diem cao cua nhat moi nhom
+    public void themDiem(LinkedList<AnhTai> dsAnhTai, ArrayList<Nhom> dsNhom) {
+        for(AnhTai anhTai : dsAnhTai){
+            if(getAnhTaiDiemCaoNhatCuaMoiNhom(dsNhom).contains(anhTai)) {
+                anhTai.setDiemHoaLuc(300);
+            }
+        }
+    }
 
 }

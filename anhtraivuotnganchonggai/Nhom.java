@@ -13,7 +13,6 @@ public class Nhom {
     private HashMap<AnhTai, Integer> bangDiemBinhChonThanhVien = new HashMap<>();
     private ArrayList<AnhTai> dsThanhVienBiLoai = new ArrayList<>();
     private AnhTai truongNhom;
-
     public Nhom(String tenNhom, LinkedList<AnhTai> dsAnhTai, HashMap<AnhTai, BaiHat> baiHatRieng, BaiHat baiHatChung, int diemBinhChon, HashMap<AnhTai, Integer> bangDiemBinhChonThanhVien, ArrayList<AnhTai> dsThanhVienBiLoai, AnhTai truongNhom) {
         this.tenNhom = tenNhom;
         this.dsAnhTai = dsAnhTai;
@@ -77,11 +76,18 @@ public class Nhom {
         this.truongNhom = truongNhom;
     }
     //loại thành viên
-    public void loaiThanhVien(LinkedList<AnhTai> dsThanhVienBiLoai, ArrayList<AnhTai> dsThanhVien, AnhTai anhTai) {
-
+    public void loaiThanhVien(LinkedList<AnhTai> dsThanhVienBiLoai, ArrayList<AnhTai> dsThanhVien, AnhTai anhTaiBiLoai) {
+        for (AnhTai anhTai : dsThanhVien) {
+          if(anhTai.equals(anhTaiBiLoai)) {
+              dsThanhVien.remove(anhTai);
+              dsThanhVienBiLoai.add(anhTai);
+          }
+        }
     }
     //thêm thành viên
-    public void themThanhVien(AnhTai anhTai, ArrayList<AnhTai> dsAnhTai) {
-
+    public void themThanhVien(AnhTai anhTai, LinkedList<AnhTai> dsAnhTai) {
+        if(!dsAnhTai.contains(anhTai)) {
+            dsAnhTai.add(anhTai);
+        }
     }
 }

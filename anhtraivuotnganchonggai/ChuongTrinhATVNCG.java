@@ -19,7 +19,6 @@ public class ChuongTrinhATVNCG {
         this.dsAnhTaiBiLoaiVaThuTuDemCongDien = new HashMap<>();
         this.tenGiaiThuongVaTenAnhTai = new HashMap<>();
     }
-
     public void setDsAnhTaiThamGia(LinkedList<AnhTai> dsAnhTaiThamGia) {
         this.dsAnhTaiThamGia = dsAnhTaiThamGia;
     }
