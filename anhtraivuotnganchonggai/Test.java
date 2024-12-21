@@ -1,10 +1,14 @@
 package Exercise1.src.anhtraivuotnganchonggai;
 
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
 
 public class Test {
     public static void main(String[] args) {
-        ArrayList<AnhTai> anhTaiList = new ArrayList<>();
+        ChuongTrinhATVNCG ATVNCG = new ChuongTrinhATVNCG(1);
+        LinkedList<AnhTai> anhTaiList = new LinkedList<>();
         // Tạo đối tượng Bằng Kiều
         ArrayList<String> ngheNghiep1 = new ArrayList<>();
         ngheNghiep1.add("Ca sĩ"); AnhTai bangKieu = new AnhTai("Kieu the Idol", "Bằng Kiều", "1973", 35, ngheNghiep1, 0, 0, "");
@@ -57,7 +61,7 @@ public class Test {
         // Tạo đối tượng BB Trần
         ArrayList<String> ngheNghiep11 = new ArrayList<>();
         ngheNghiep11.add("Diễn viên");
-        AnhTai bbTran = new AnhTai("Tran Charisma", "BB Trần", "1990", 15, ngheNghiep11, 0, 0, "");
+        AnhTai bbTran = new AnhTai("BB Trần", "Trần Phan Quốc Bảo", "1990", 15, ngheNghiep11, 0, 0, "");
         anhTaiList.add(bbTran);
         // Tạo đối tượng S.T Sơn Thạch
         ArrayList<String> ngheNghiep12 = new ArrayList<>();
@@ -103,11 +107,11 @@ public class Test {
         ngheNghiep19.add("Ca sĩ");
         AnhTai tuanHung = new AnhTai("Hung Vocal Power", "Tuấn Hưng", "1978", 29, ngheNghiep19, 0, 0, "");
         anhTaiList.add(tuanHung);
-        //Hale
+        //Hà Lê
         ArrayList<String> ngheNghiep20 = new ArrayList<>();
         ngheNghiep20.add("Ca sĩ");
         ngheNghiep20.add("Rapper"); ngheNghiep20.add("Vũ công");
-        AnhTai haLe = new AnhTai("Le Versatile", "Hale", "1984", 20, ngheNghiep20, 0, 0, "");
+        AnhTai haLe = new AnhTai("HaLe", "Hà Lê", "1984", 20, ngheNghiep20, 0, 0, "");
         anhTaiList.add(haLe);
         //Thiên Minh
         ArrayList<String> ngheNghiep21 = new ArrayList<>();
@@ -174,6 +178,311 @@ public class Test {
          ngheNghiep33.add("Ca sĩ"); ngheNghiep33.add("Nhạc sĩ");
          AnhTai huyR = new AnhTai("HuyR the Melody Maker", "HuyR", "1995", 9, ngheNghiep33, 0, 0, "");
          anhTaiList.add(huyR);
+         //Gia Huy
+         ArrayList<String> ngheNghiep34 = new ArrayList<>();
+         ngheNghiep34.add("Sinh Vien");
+         AnhTai giaHuy = new AnhTai("HuyG", "Nguyễn Gia Huy", "2005", 14, ngheNghiep34, 0, 0, "");
+         anhTaiList.add(giaHuy);
+         //Lê Vân Trường
+         ArrayList<String> ngheNghiep35 = new ArrayList<>();
+         ngheNghiep35.add("Sinh Vien");
+         AnhTai vanTruong = new AnhTai("Vân Trường MTP", "Lê Vân Trường", "2005", 14, ngheNghiep35, 0, 0, "");
+         anhTaiList.add(vanTruong);
+         // Thêm anh tài vào chương trình
+         ATVNCG.setDsAnhTaiThamGia(anhTaiList);
+     // SÂN KHẤU RA MẮT
+        //nhóm anh tài huyền thoại
+            //danh sach anh tai
+        LinkedList<AnhTai> anhTaiHuyenThoai = new LinkedList<>();
+        anhTaiHuyenThoai.add(tuanHung);
+        anhTaiHuyenThoai.add(bangKieu);
+        anhTaiHuyenThoai.add(tuLong);
+        anhTaiHuyenThoai.add(hongSon);
+            //bai hat trinh dien ca nhan
+        BaiHat baiHat1 = new BaiHat("Quả táo vàng","Phúc Bồ",  "SlimV", null);
+        BaiHat baiHat2 = new BaiHat("Hè muộn","Bằng Kiều",  "SlimV", null);
+        BaiHat baiHat3 = new BaiHat("Tình đất","Tuấn Phương",  "SlimV", null);
+        BaiHat baiHat4 = new BaiHat("Niềm tin chiến thắng","Lê Quang",  "SlimV", null);
+        BaiHat baiHatChung1 = new BaiHat("Quê hương tuổi thơ tôi & Nếu có yêu tôi", "Từ Huy, Trần Duy Đức, Ngô Tịnh Yên", "SlimV", null);
+        HashMap<AnhTai, BaiHat> baiHatRieng1 = new HashMap<>();
+        baiHatRieng1.put(tuanHung,baiHat1);
+        baiHatRieng1.put(bangKieu,baiHat2);
+        baiHatRieng1.put(tuLong,baiHat3);
+        baiHatRieng1.put(hongSon,baiHat4);
+            // bang diem binh chon thanh vien
+        HashMap<AnhTai, Integer> bangDiemCaNhanHuyenThoai = new HashMap<>();
+        bangDiemCaNhanHuyenThoai.put(tuanHung,0);
+        bangDiemCaNhanHuyenThoai.put(bangKieu,0);
+        bangDiemCaNhanHuyenThoai.put(tuLong,0);
+        bangDiemCaNhanHuyenThoai.put(hongSon,0);
+            // danh sách thành viên bị loại
+        ArrayList<AnhTai> dsAnhTaiHuyenThoaiLoai = new ArrayList<>();
+        Nhom nhomAnhTaiHuyenThoai = new Nhom("Anh Tai Huyen Thoai", anhTaiHuyenThoai, baiHatRieng1, baiHatChung1, 0, bangDiemCaNhanHuyenThoai, dsAnhTaiHuyenThoaiLoai, null);
+
+        //nhóm nam thần rực lửa
+            //danh sach anh tai
+        LinkedList<AnhTai> namThanRucLua = new LinkedList<>();
+        namThanRucLua.add(kayTran);
+        namThanRucLua.add(soobin);
+        namThanRucLua.add(cuongSeven);
+        namThanRucLua.add(kienUng);
+        namThanRucLua.add(giaHuy);
+        namThanRucLua.add(vanTruong);
+            //Bai hat trinh dien
+        BaiHat baiHat5 = new BaiHat("Đường vào tim em","Phúc Bồ",  "SlimV", null);
+        BaiHat baiHat6 = new BaiHat("Giá như","Soobin",  "SlimV", null);
+        BaiHat baiHat7 = new BaiHat("Quên lối về","Cường Seven",  "SlimV", null);
+        BaiHat baiHat8 = new BaiHat("Diamond","Lil Wuyn",  "SlimV", null);
+        BaiHat baiHat9 = new BaiHat("Dưới tán cây khô hoa nở","J97",  "J97", null);
+        BaiHat baiHat10 = new BaiHat("Em cua ngay hom qua","Sơn tùng MTP",  "SlimV", null);
+        BaiHat baiHatChung2 = new BaiHat("Nước hoa", "Hoàng Tôn", "Melyd K", null);
+        HashMap<AnhTai, BaiHat> baiHatRieng2 = new HashMap<>();
+        baiHatRieng2.put(kayTran,baiHat5);
+        baiHatRieng2.put(soobin,baiHat6);
+        baiHatRieng2.put(cuongSeven,baiHat7);
+        baiHatRieng2.put(kienUng,baiHat8);
+        baiHatRieng2.put(giaHuy,baiHat9);
+        baiHatRieng2.put(vanTruong,baiHat10);
+        // bang diem binh chon thanh vien
+        HashMap<AnhTai, Integer> bangDiemCaNhanRucLua = new HashMap<>();
+        bangDiemCaNhanHuyenThoai.put(tuanHung,0);
+        bangDiemCaNhanHuyenThoai.put(bangKieu,0);
+        bangDiemCaNhanHuyenThoai.put(tuLong,0);
+        bangDiemCaNhanHuyenThoai.put(hongSon,0);
+        // danh sách thành viên bị loại
+        ArrayList<AnhTai> dsNamThanRucLuaLoai = new ArrayList<>();
+        Nhom nhomNamThanRucLua= new Nhom("NamThanRucLua",namThanRucLua,baiHatRieng2,baiHatChung2,0,bangDiemCaNhanRucLua, dsNamThanRucLuaLoai, null);
+
+        //nhóm anh tài sục sôi
+        LinkedList<AnhTai> anhTaiSucSoi = new LinkedList<>();
+        anhTaiSucSoi.add(phanDinhTung);
+        anhTaiSucSoi.add(thanhTrung);
+        anhTaiSucSoi.add(doHoangHiep);
+        // Bài hát trình diễn cá nhân
+        BaiHat baiHat11= new BaiHat("Bởi vì anh yêu em", "Phan Đinh Tùng", "SlimV", null);
+        BaiHat baiHat12 = new BaiHat("Chiếc khăn gió ấm", "Nguyễn Văn Chung", "SlimV", null);
+        BaiHat baiHat13 = new BaiHat("Trống vắng", "Quốc Hùng", "SlimV", null);
+        // Bài hát chung
+        BaiHat baiHatChung3 = new BaiHat("Đón bình minh", "Khắc Hưng", "SlimV", null);
+        // Ghép bài hát cá nhân với các thành viên
+        HashMap<AnhTai, BaiHat> baiHatRieng3 = new HashMap<>();
+        baiHatRieng3.put(phanDinhTung, baiHat11);
+        baiHatRieng3.put(thanhTrung, baiHat12);
+        baiHatRieng3.put(doHoangHiep, baiHat13);
+        // Bảng điểm cá nhân
+        HashMap<AnhTai, Integer> bangDiemCaNhanSucSoi = new HashMap<>();
+        bangDiemCaNhanSucSoi.put(phanDinhTung, 0);
+        bangDiemCaNhanSucSoi.put(thanhTrung, 0);
+        bangDiemCaNhanSucSoi.put(doHoangHiep, 0);
+        // Danh sách thành viên bị loại
+        ArrayList<AnhTai> dsAnhTaiSucSoiLoai = new ArrayList<>();
+        // Tạo nhóm Anh Tài Sục Sôi
+        Nhom nhomAnhTaiSucSoi = new Nhom("Anh Tài Sục Sôi", anhTaiSucSoi, baiHatRieng3, baiHatChung3, 0, bangDiemCaNhanSucSoi, dsAnhTaiSucSoiLoai, null);
+
+        // Nhóm Anh Tài Bí Ẩn
+        LinkedList<AnhTai> anhTaiBiAn = new LinkedList<>();
+        anhTaiBiAn.add(trongHieu);
+        anhTaiBiAn.add(stSonThach);
+        anhTaiBiAn.add(thanhDuy);
+        anhTaiBiAn.add(bbTran);
+        anhTaiBiAn.add(nekoLe);
+        // Bài hát trình diễn cá nhân
+        BaiHat baiHat21 = new BaiHat("Rise Up", "(S)TRONG Trọng Hiếu, Scott Quinn, Ningyuan Jiang, Samuel Dick", "SlimV", null);
+        BaiHat baiHat22 = new BaiHat("Thật xa thật gần", "Andiez Nam Trương", "SlimV", null);
+        BaiHat baiHat23 = new BaiHat("Tình anh bán chiếu", "Thanh Duy", "SlimV", null);
+        BaiHat baiHat24 = new BaiHat("Cánh hồng phai", "Dương Khắc Linh, Hoàng Huy Long", "SlimV", null);
+        BaiHat baiHat25 = new BaiHat("Yêu em dại khờ", "Nguyên Jenda", "SlimV", null);
+        // Bài hát chung
+        BaiHat baiHatChung4 = new BaiHat("Người lạ ơi", "Châu Đăng Khoa", "SlimV", null);
+        // Ghép bài hát cá nhân với các thành viên
+        HashMap<AnhTai, BaiHat> baiHatRieng4 = new HashMap<>();
+        baiHatRieng4.put(trongHieu, baiHat21);
+        baiHatRieng4.put(stSonThach, baiHat22);
+        baiHatRieng4.put(thanhDuy, baiHat23);
+        baiHatRieng4.put(bbTran, baiHat24);
+        baiHatRieng4.put(nekoLe, baiHat25);
+        // Bảng điểm cá nhân
+        HashMap<AnhTai, Integer> bangDiemCaNhanBiAn = new HashMap<>();
+        bangDiemCaNhanBiAn.put(trongHieu, 0);
+        bangDiemCaNhanBiAn.put(stSonThach, 0);
+        bangDiemCaNhanBiAn.put(thanhDuy, 0);
+        bangDiemCaNhanBiAn.put(bbTran, 0);
+        bangDiemCaNhanBiAn.put(nekoLe, 0);
+        // Danh sách thành viên bị loại
+        ArrayList<AnhTai> dsAnhTaiBiAnLoai = new ArrayList<>();
+        // Tạo nhóm Anh Tài Bí Ẩn
+        Nhom nhomAnhTaiBiAn = new Nhom("Anh Tài Bí Ẩn", anhTaiBiAn, baiHatRieng4, baiHatChung4, 0, bangDiemCaNhanBiAn, dsAnhTaiBiAnLoai, null);
+        // Nhóm Anh Tài Nham Thạch
+        LinkedList<AnhTai> anhTaiNhamThach = new LinkedList<>();
+        anhTaiNhamThach.add(binz);
+        anhTaiNhamThach.add(rhymastic);
+        anhTaiNhamThach.add(dinhTienDat);
+        anhTaiNhamThach.add(haLe);
+        // Bài hát trình diễn cá nhân
+        BaiHat baiHat31 = new BaiHat("Men Cry", "Binz", "SlimV", null);
+        BaiHat baiHat32 = new BaiHat("Lặng", "Rhymastic", "SlimV", null);
+        BaiHat baiHat33 = new BaiHat("Tặng anh cho cô ấy", "Hứa Kim Tuyền, Hương Giang", "SlimV", null);
+        BaiHat baiHat34 = new BaiHat("Quay lại giường đi em", "Khắc Hưng", "SlimV", null);
+        // Bài hát chung
+        BaiHat baiHatChung5 = new BaiHat("Khiến nó ngầu", "Rhymastic, Đinh Tiến Đạt, Binz", "SlimV", null);
+        // Ghép bài hát cá nhân với các thành viên
+        HashMap<AnhTai, BaiHat> baiHatRieng5 = new HashMap<>();
+        baiHatRieng5.put(binz, baiHat31);
+        baiHatRieng5.put(rhymastic, baiHat32);
+        baiHatRieng5.put(dinhTienDat, baiHat33);
+        baiHatRieng5.put(haLe, baiHat34);
+        // Bảng điểm cá nhân
+        HashMap<AnhTai, Integer> bangDiemCaNhanNhamThach = new HashMap<>();
+        bangDiemCaNhanNhamThach.put(binz, 0);
+        bangDiemCaNhanNhamThach.put(rhymastic, 0);
+        bangDiemCaNhanNhamThach.put(dinhTienDat, 0);
+        bangDiemCaNhanNhamThach.put(haLe, 0);
+        // Danh sách thành viên bị loại
+        ArrayList<AnhTai> dsAnhTaiNhamThachLoai = new ArrayList<>();
+        // Tạo nhóm Anh Tài Nham Thạch
+        Nhom nhomAnhTaiNhamThach = new Nhom("Anh Tài Nham Thạch", anhTaiNhamThach, baiHatRieng5, baiHatChung5, 0, bangDiemCaNhanNhamThach, dsAnhTaiNhamThachLoai, null);
+        //Nhóm Thanh Xuân Học Đường
+        LinkedList<AnhTai> thanhXuanHocDuong = new LinkedList<>();
+        thanhXuanHocDuong.add(quocThien);
+        thanhXuanHocDuong.add(phamKhanhHung);
+        thanhXuanHocDuong.add(dangKhoi);
+        // Bài hát trình diễn cá nhân
+        BaiHat baiHatTX1 = new BaiHat("Hơn 1000 năm sau & Chia cách bình yên", "Trịnh Đình Quang, Tiên Cookie", "SlimV", null);
+        BaiHat baiHatTX2 = new BaiHat("Biết làm sao để quên em & Không cần phải hứa đâu em", "Phạm Khánh Hưng", "SlimV", null);
+        BaiHat baiHatTX3 = new BaiHat("Cô bé mùa đông & Thương thương yêu yêu", "Phạm Toàn Thắng, Lê Bá Vĩnh", "SlimV", null);
+        // Bài hát chung
+        BaiHat baiHatChungTX = new BaiHat("Sống tình", "Tuấn Khanh", "SlimV", null);
+        // Ghép bài hát cá nhân với các thành viên
+        HashMap<AnhTai, BaiHat> baiHatRiengTX = new HashMap<>();
+        baiHatRiengTX.put(quocThien, baiHatTX1);
+        baiHatRiengTX.put(phamKhanhHung, baiHatTX2);
+        baiHatRiengTX.put(dangKhoi, baiHatTX3);
+        // Bảng điểm cá nhân
+        HashMap<AnhTai, Integer> bangDiemCaNhanTX = new HashMap<>();
+        bangDiemCaNhanTX.put(quocThien, 0);
+        bangDiemCaNhanTX.put(phamKhanhHung, 0);
+        bangDiemCaNhanTX.put(dangKhoi, 0);
+        // Danh sách thành viên bị loại
+        ArrayList<AnhTai> dsAnhTaiTXLoai = new ArrayList<>();
+        // Tạo nhóm Thanh Xuân Học Đường
+        Nhom nhomThanhXuanHocDuong = new Nhom("Thanh Xuân Học Đường", thanhXuanHocDuong, baiHatRiengTX, baiHatChungTX, 0, bangDiemCaNhanTX, dsAnhTaiTXLoai, null);
+        // Nhóm Anh Tài Đa Sắc
+        LinkedList<AnhTai> anhTaiDaSac = new LinkedList<>();
+        anhTaiDaSac.add(duyKhanh);
+        anhTaiDaSac.add(tangPhuc);
+        anhTaiDaSac.add(buiCongNam);
+        anhTaiDaSac.add(huyR);
+        anhTaiDaSac.add(junPham);
+        anhTaiDaSac.add(thienMinh);
+        // Bài hát trình diễn cá nhân
+        BaiHat baiHatDS1 = new BaiHat("Think of You", "Thu Thủy, Pháo", "SlimV", null);
+        BaiHat baiHatDS2 = new BaiHat("Đừng chờ anh nữa", "Huỳnh Quốc Huy, Tony Việt", "SlimV", null);
+        BaiHat baiHatDS3 = new BaiHat("Chúa tể", "Bùi Công Nam", "SlimV", null);
+        BaiHat baiHatDS4 = new BaiHat("Cô gái M52 & Anh thanh niên", "HuyR, Tùng Vũ", "SlimV", null);
+        BaiHat baiHatDS5 = new BaiHat("Tản thời", "Huỳnh Hiền Năng", "SlimV", null);
+        BaiHat baiHatDS6 = new BaiHat("Cho em đi & Đôi mắt", "Wanbi Tuấn Anh, Nguyễn Hải Phong", "SlimV", null);
+        // Bài hát chung
+        BaiHat baiHatChungDS = new BaiHat("Anh nhà ở đâu thế?", "Lynk Lee, B Ray", "SlimV", null);
+        // Ghép bài hát cá nhân với các thành viên
+        HashMap<AnhTai, BaiHat> baiHatRiengDS = new HashMap<>();
+        baiHatRiengDS.put(duyKhanh, baiHatDS1);
+        baiHatRiengDS.put(tangPhuc, baiHatDS2);
+        baiHatRiengDS.put(buiCongNam, baiHatDS3);
+        baiHatRiengDS.put(huyR, baiHatDS4);
+        baiHatRiengDS.put(junPham, baiHatDS5);
+        baiHatRiengDS.put(thienMinh, baiHatDS6);
+        // Bảng điểm cá nhân
+        HashMap<AnhTai, Integer> bangDiemCaNhanDS = new HashMap<>();
+        bangDiemCaNhanDS.put(duyKhanh, 0);
+        bangDiemCaNhanDS.put(tangPhuc, 0);
+        bangDiemCaNhanDS.put(buiCongNam, 0);
+        bangDiemCaNhanDS.put(huyR, 0);
+        bangDiemCaNhanDS.put(junPham, 0);
+        bangDiemCaNhanDS.put(thienMinh, 0);
+        // Danh sách thành viên bị loại
+        ArrayList<AnhTai> dsAnhTaiDSLoai = new ArrayList<>();
+        // Tạo nhóm Anh Tài Đa Sắc
+        Nhom nhomAnhTaiDaSac = new Nhom("Anh Tài Đa Sắc", anhTaiDaSac, baiHatRiengDS, baiHatChungDS, 0, bangDiemCaNhanDS, dsAnhTaiDSLoai, null);
+        // Nhóm Quý Ông Đa Tình
+        LinkedList<AnhTai> quyOngDaTinh = new LinkedList<>();
+        quyOngDaTinh.add(truongTheVinh);
+        quyOngDaTinh.add(lienBinhPhat);
+        quyOngDaTinh.add(nguyenTranDuyNhat);
+        // Bài hát trình diễn cá nhân
+        BaiHat baiHatQT1 = new BaiHat("Cánh hoa rơi & Phận má hồng", "Phạm Việt Hoàng", "SlimV", null);
+        BaiHat baiHatQT2 = new BaiHat("Từng yêu", "Nguyễn Đình Dũng", "SlimV", null);
+        BaiHat baiHatQT3 = new BaiHat("Vì anh thương em (Vô cùng)", "Võ Hoài Phúc, Nguyễn Tuấn Anh", "SlimV", null);
+        // Bài hát chung
+        BaiHat baiHatChungQT = new BaiHat("Phía sau một cô gái", "Tiên Cookie", "SlimV", null);
+        // Ghép bài hát cá nhân với các thành viên
+        HashMap<AnhTai, BaiHat> baiHatRiengQT = new HashMap<>();
+        baiHatRiengQT.put(truongTheVinh, baiHatQT1);
+        baiHatRiengQT.put(lienBinhPhat, baiHatQT2);
+        baiHatRiengQT.put(nguyenTranDuyNhat, baiHatQT3);
+        // Bảng điểm cá nhân
+        HashMap<AnhTai, Integer> bangDiemCaNhanQT = new HashMap<>();
+        bangDiemCaNhanQT.put(truongTheVinh, 0);
+        bangDiemCaNhanQT.put(lienBinhPhat, 0);
+        bangDiemCaNhanQT.put(nguyenTranDuyNhat, 0);
+        // Danh sách thành viên bị loại
+        ArrayList<AnhTai> dsAnhTaiQTLoai = new ArrayList<>();
+        // Tạo nhóm Quý Ông Đa Tình
+        Nhom nhomQuyOngDaTinh = new Nhom("Quý Ông Đa Tình", quyOngDaTinh, baiHatRiengQT, baiHatChungQT, 0, bangDiemCaNhanQT, dsAnhTaiQTLoai, null);
+        System.out.println(anhTaiList);
+//Danh sách các nhóm
+        ArrayList<Nhom> dsNhom = new ArrayList<>();
+        dsNhom.add(nhomAnhTaiHuyenThoai);
+        dsNhom.add(nhomAnhTaiBiAn);
+        dsNhom.add(nhomAnhTaiDaSac);
+        dsNhom.add(nhomAnhTaiSucSoi);
+        dsNhom.add(nhomQuyOngDaTinh);
+        dsNhom.add(nhomAnhTaiNhamThach);
+        dsNhom.add(nhomThanhXuanHocDuong);
+        dsNhom.add(nhomNamThanRucLua);
+        LinkedList<AnhTai> dsAnhTaiBiLoai = new LinkedList<>();
+        HashMap<String, Integer> bangDiemBinhChonCaNhan = new HashMap<>();
+        HashMap<String, Integer> bangDiemHoaLucCaNhan = new HashMap<>();
+        CongDien congDien1 = new CongDien("1", "Người thiếu niên thuở nào",dsNhom, "vote", dsAnhTaiBiLoai, bangDiemBinhChonCaNhan, bangDiemHoaLucCaNhan);
+        // sau vòng sân khấu ra mắt
+        bangKieu.setDiem(470,130);
+        tuanHung.setDiem(1260, 480);
+        soobin.setDiem(1190, 780);
+        phanDinhTung.setDiem(1390,440);
+        bbTran.setDiem(880,880);
+        binz.setDiem(1290,710);
+        quocThien.setDiem(1390, 540);
+        junPham.setDiem(1170,850);
+        tienLuat.setDiem(960,760);
+        kayTran.setDiem(1100,520);
+        cuongSeven.setDiem(440,230);
+        lienBinhPhat.setDiem(680,250);
+        duyKhanh.setDiem(710,440);
+        stSonThach.setDiem(810,450);
+        dinhTienDat.setDiem(340,210);
+        rhymastic.setDiem(970,330);
+        thanhDuy.setDiem(460, 250);
+        vanTruong.setDiem(1200,520);
+        giaHuy.setDiem(1128,519);
+        thanhTrung.setDiem(1050,80);
+        doHoangHiep.setDiem(520,100);
+        huyR.setDiem(230,130);
+        hongSon.setDiem(390,130);
+        phamKhanhHung.setDiem(550,140);
+        haLe.setDiem(330,160);
+        tuLong.setDiem(830,160);
+        tangPhuc.setDiem(480,190);
+        nguyenTranDuyNhat.setDiem(440,200);
+        buiCongNam.setDiem(460,220);
+        dangKhoi.setDiem(1150,220);
+        trongHieu.setDiem(300,230);
+        kienUng.setDiem(230,260);
+        nekoLe.setDiem(510,380);
+        thienMinh.setDiem(470,260);
+        truongTheVinh.setDiem(530,370);
+        System.out.println(anhTaiList);
+
+        //CÔNG DIỄN 1
+
 
     }
 }
