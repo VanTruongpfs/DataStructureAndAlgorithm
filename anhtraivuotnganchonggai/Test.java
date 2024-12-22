@@ -1,6 +1,7 @@
-package Exercise1.src.anhtraivuotnganchonggai;
+package anhtraivuotnganchonggai;
 
 
+import java.lang.classfile.instruction.SwitchCase;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -204,6 +205,8 @@ public class Test {
         BaiHat baiHat3 = new BaiHat("Tình đất","Tuấn Phương",  "SlimV", null);
         BaiHat baiHat4 = new BaiHat("Niềm tin chiến thắng","Lê Quang",  "SlimV", null);
         BaiHat baiHatChung1 = new BaiHat("Quê hương tuổi thơ tôi & Nếu có yêu tôi", "Từ Huy, Trần Duy Đức, Ngô Tịnh Yên", "SlimV", null);
+        ArrayList<BaiHat> dsBaiHatChung1 = new ArrayList<BaiHat>();
+        dsBaiHatChung1.add(baiHatChung1);
         HashMap<AnhTai, BaiHat> baiHatRieng1 = new HashMap<>();
         baiHatRieng1.put(tuanHung,baiHat1);
         baiHatRieng1.put(bangKieu,baiHat2);
@@ -215,9 +218,9 @@ public class Test {
         bangDiemCaNhanHuyenThoai.put(bangKieu,0);
         bangDiemCaNhanHuyenThoai.put(tuLong,0);
         bangDiemCaNhanHuyenThoai.put(hongSon,0);
-            // danh sách thành viên bị loại
-        ArrayList<AnhTai> dsAnhTaiHuyenThoaiLoai = new ArrayList<>();
-        Nhom nhomAnhTaiHuyenThoai = new Nhom("Anh Tai Huyen Thoai", anhTaiHuyenThoai, baiHatRieng1, baiHatChung1, 0, bangDiemCaNhanHuyenThoai, dsAnhTaiHuyenThoaiLoai, null);
+
+        Nhom nhomAnhTaiHuyenThoai = new Nhom("Anh Tai Huyen Thoai", anhTaiHuyenThoai,dsBaiHatChung1, 0, bangDiemCaNhanHuyenThoai, null);
+        nhomAnhTaiHuyenThoai.setBaiHatRieng(baiHatRieng1);
         //nhóm nam thần rực lửa
             //danh sach anh tai
         LinkedList<AnhTai> namThanRucLua = new LinkedList<>();
@@ -235,6 +238,8 @@ public class Test {
         BaiHat baiHat9 = new BaiHat("Dưới tán cây khô hoa nở","J97",  "J97", null);
         BaiHat baiHat10 = new BaiHat("Em cua ngay hom qua","Sơn tùng MTP",  "SlimV", null);
         BaiHat baiHatChung2 = new BaiHat("Nước hoa", "Hoàng Tôn", "Melyd K", null);
+        ArrayList<BaiHat> dsBaiHatChung2 = new ArrayList<BaiHat>();
+        dsBaiHatChung2.add(baiHatChung2);
         HashMap<AnhTai, BaiHat> baiHatRieng2 = new HashMap<>();
         baiHatRieng2.put(kayTran,baiHat5);
         baiHatRieng2.put(soobin,baiHat6);
@@ -248,10 +253,9 @@ public class Test {
         bangDiemCaNhanHuyenThoai.put(bangKieu,0);
         bangDiemCaNhanHuyenThoai.put(tuLong,0);
         bangDiemCaNhanHuyenThoai.put(hongSon,0);
-        // danh sách thành viên bị loại
-        ArrayList<AnhTai> dsNamThanRucLuaLoai = new ArrayList<>();
-        Nhom nhomNamThanRucLua= new Nhom("NamThanRucLua",namThanRucLua,baiHatRieng2,baiHatChung2,0,bangDiemCaNhanRucLua, dsNamThanRucLuaLoai, null);
-
+       
+        Nhom nhomNamThanRucLua= new Nhom("NamThanRucLua",namThanRucLua,dsBaiHatChung2,0,bangDiemCaNhanRucLua,  null);
+        nhomNamThanRucLua.setBaiHatRieng(baiHatRieng2);
         //nhóm anh tài sục sôi
         LinkedList<AnhTai> anhTaiSucSoi = new LinkedList<>();
         anhTaiSucSoi.add(phanDinhTung);
@@ -263,6 +267,8 @@ public class Test {
         BaiHat baiHat13 = new BaiHat("Trống vắng", "Quốc Hùng", "SlimV", null);
         // Bài hát chung
         BaiHat baiHatChung3 = new BaiHat("Đón bình minh", "Khắc Hưng", "SlimV", null);
+        ArrayList<BaiHat> dsBaiHatChung3 = new ArrayList<BaiHat>();
+        dsBaiHatChung3.add(baiHatChung3);
         // Ghép bài hát cá nhân với các thành viên
         HashMap<AnhTai, BaiHat> baiHatRieng3 = new HashMap<>();
         baiHatRieng3.put(phanDinhTung, baiHat11);
@@ -273,11 +279,10 @@ public class Test {
         bangDiemCaNhanSucSoi.put(phanDinhTung, 0);
         bangDiemCaNhanSucSoi.put(thanhTrung, 0);
         bangDiemCaNhanSucSoi.put(doHoangHiep, 0);
-        // Danh sách thành viên bị loại
-        ArrayList<AnhTai> dsAnhTaiSucSoiLoai = new ArrayList<>();
+        
         // Tạo nhóm Anh Tài Sục Sôi
-        Nhom nhomAnhTaiSucSoi = new Nhom("Anh Tài Sục Sôi", anhTaiSucSoi, baiHatRieng3, baiHatChung3, 0, bangDiemCaNhanSucSoi, dsAnhTaiSucSoiLoai, null);
-
+        Nhom nhomAnhTaiSucSoi = new Nhom("Anh Tài Sục Sôi", anhTaiSucSoi, dsBaiHatChung3, 0, bangDiemCaNhanSucSoi, null);
+        nhomAnhTaiSucSoi.setBaiHatRieng(baiHatRieng3);
         // Nhóm Anh Tài Bí Ẩn
         LinkedList<AnhTai> anhTaiBiAn = new LinkedList<>();
         anhTaiBiAn.add(trongHieu);
@@ -293,6 +298,8 @@ public class Test {
         BaiHat baiHat25 = new BaiHat("Yêu em dại khờ", "Nguyên Jenda", "SlimV", null);
         // Bài hát chung
         BaiHat baiHatChung4 = new BaiHat("Người lạ ơi", "Châu Đăng Khoa", "SlimV", null);
+        ArrayList<BaiHat> dsBaiHatChung4 = new ArrayList<BaiHat>();
+        dsBaiHatChung4.add(baiHatChung4);
         // Ghép bài hát cá nhân với các thành viên
         HashMap<AnhTai, BaiHat> baiHatRieng4 = new HashMap<>();
         baiHatRieng4.put(trongHieu, baiHat21);
@@ -307,10 +314,10 @@ public class Test {
         bangDiemCaNhanBiAn.put(thanhDuy, 0);
         bangDiemCaNhanBiAn.put(bbTran, 0);
         bangDiemCaNhanBiAn.put(nekoLe, 0);
-        // Danh sách thành viên bị loại
-        ArrayList<AnhTai> dsAnhTaiBiAnLoai = new ArrayList<>();
+ 
         // Tạo nhóm Anh Tài Bí Ẩn
-        Nhom nhomAnhTaiBiAn = new Nhom("Anh Tài Bí Ẩn", anhTaiBiAn, baiHatRieng4, baiHatChung4, 0, bangDiemCaNhanBiAn, dsAnhTaiBiAnLoai, null);
+        Nhom nhomAnhTaiBiAn = new Nhom("Anh Tài Bí Ẩn", anhTaiBiAn, dsBaiHatChung4, 0, bangDiemCaNhanBiAn, null);
+        nhomAnhTaiBiAn.setBaiHatRieng(baiHatRieng4);
         // Nhóm Anh Tài Nham Thạch
         LinkedList<AnhTai> anhTaiNhamThach = new LinkedList<>();
         anhTaiNhamThach.add(binz);
@@ -324,6 +331,8 @@ public class Test {
         BaiHat baiHat34 = new BaiHat("Quay lại giường đi em", "Khắc Hưng", "SlimV", null);
         // Bài hát chung
         BaiHat baiHatChung5 = new BaiHat("Khiến nó ngầu", "Rhymastic, Đinh Tiến Đạt, Binz", "SlimV", null);
+        ArrayList<BaiHat> dsBaiHatChung5 = new ArrayList<BaiHat>();
+        dsBaiHatChung5.add(baiHatChung5);
         // Ghép bài hát cá nhân với các thành viên
         HashMap<AnhTai, BaiHat> baiHatRieng5 = new HashMap<>();
         baiHatRieng5.put(binz, baiHat31);
@@ -336,10 +345,10 @@ public class Test {
         bangDiemCaNhanNhamThach.put(rhymastic, 0);
         bangDiemCaNhanNhamThach.put(dinhTienDat, 0);
         bangDiemCaNhanNhamThach.put(haLe, 0);
-        // Danh sách thành viên bị loại
-        ArrayList<AnhTai> dsAnhTaiNhamThachLoai = new ArrayList<>();
+  
         // Tạo nhóm Anh Tài Nham Thạch
-        Nhom nhomAnhTaiNhamThach = new Nhom("Anh Tài Nham Thạch", anhTaiNhamThach, baiHatRieng5, baiHatChung5, 0, bangDiemCaNhanNhamThach, dsAnhTaiNhamThachLoai, null);
+        Nhom nhomAnhTaiNhamThach = new Nhom("Anh Tài Nham Thạch", anhTaiNhamThach, dsBaiHatChung5, 0, bangDiemCaNhanNhamThach,  null);
+        nhomAnhTaiNhamThach.setBaiHatRieng(baiHatRieng5);
         //Nhóm Thanh Xuân Học Đường
         LinkedList<AnhTai> thanhXuanHocDuong = new LinkedList<>();
         thanhXuanHocDuong.add(quocThien);
@@ -351,6 +360,8 @@ public class Test {
         BaiHat baiHatTX3 = new BaiHat("Cô bé mùa đông & Thương thương yêu yêu", "Phạm Toàn Thắng, Lê Bá Vĩnh", "SlimV", null);
         // Bài hát chung
         BaiHat baiHatChungTX = new BaiHat("Sống tình", "Tuấn Khanh", "SlimV", null);
+        ArrayList<BaiHat> dsBaiHatChungTX = new ArrayList<BaiHat>();
+        dsBaiHatChungTX.add(baiHatChungTX);
         // Ghép bài hát cá nhân với các thành viên
         HashMap<AnhTai, BaiHat> baiHatRiengTX = new HashMap<>();
         baiHatRiengTX.put(quocThien, baiHatTX1);
@@ -361,10 +372,9 @@ public class Test {
         bangDiemCaNhanTX.put(quocThien, 0);
         bangDiemCaNhanTX.put(phamKhanhHung, 0);
         bangDiemCaNhanTX.put(dangKhoi, 0);
-        // Danh sách thành viên bị loại
-        ArrayList<AnhTai> dsAnhTaiTXLoai = new ArrayList<>();
         // Tạo nhóm Thanh Xuân Học Đường
-        Nhom nhomThanhXuanHocDuong = new Nhom("Thanh Xuân Học Đường", thanhXuanHocDuong, baiHatRiengTX, baiHatChungTX, 0, bangDiemCaNhanTX, dsAnhTaiTXLoai, null);
+        Nhom nhomThanhXuanHocDuong = new Nhom("Thanh Xuân Học Đường", thanhXuanHocDuong, dsBaiHatChungTX, 0, bangDiemCaNhanTX, null);
+        nhomThanhXuanHocDuong.setBaiHatRieng(baiHatRiengTX);
         // Nhóm Anh Tài Đa Sắc
         LinkedList<AnhTai> anhTaiDaSac = new LinkedList<>();
         anhTaiDaSac.add(duyKhanh);
@@ -382,6 +392,8 @@ public class Test {
         BaiHat baiHatDS6 = new BaiHat("Cho em đi & Đôi mắt", "Wanbi Tuấn Anh, Nguyễn Hải Phong", "SlimV", null);
         // Bài hát chung
         BaiHat baiHatChungDS = new BaiHat("Anh nhà ở đâu thế?", "Lynk Lee, B Ray", "SlimV", null);
+        ArrayList<BaiHat> dsBaiHatChungDS = new ArrayList<BaiHat>();
+        dsBaiHatChungDS.add(baiHatChungDS);
         // Ghép bài hát cá nhân với các thành viên
         HashMap<AnhTai, BaiHat> baiHatRiengDS = new HashMap<>();
         baiHatRiengDS.put(duyKhanh, baiHatDS1);
@@ -398,10 +410,10 @@ public class Test {
         bangDiemCaNhanDS.put(huyR, 0);
         bangDiemCaNhanDS.put(junPham, 0);
         bangDiemCaNhanDS.put(thienMinh, 0);
-        // Danh sách thành viên bị loại
-        ArrayList<AnhTai> dsAnhTaiDSLoai = new ArrayList<>();
+   
         // Tạo nhóm Anh Tài Đa Sắc
-        Nhom nhomAnhTaiDaSac = new Nhom("Anh Tài Đa Sắc", anhTaiDaSac, baiHatRiengDS, baiHatChungDS, 0, bangDiemCaNhanDS, dsAnhTaiDSLoai, null);
+        Nhom nhomAnhTaiDaSac = new Nhom("Anh Tài Đa Sắc", anhTaiDaSac, dsBaiHatChungDS, 0, bangDiemCaNhanDS, null);
+        nhomAnhTaiDaSac.setBaiHatRieng(baiHatRiengDS);
         // Nhóm Quý Ông Đa Tình
         LinkedList<AnhTai> quyOngDaTinh = new LinkedList<>();
         quyOngDaTinh.add(truongTheVinh);
@@ -413,6 +425,8 @@ public class Test {
         BaiHat baiHatQT3 = new BaiHat("Vì anh thương em (Vô cùng)", "Võ Hoài Phúc, Nguyễn Tuấn Anh", "SlimV", null);
         // Bài hát chung
         BaiHat baiHatChungQT = new BaiHat("Phía sau một cô gái", "Tiên Cookie", "SlimV", null);
+        ArrayList<BaiHat> dsBaiHatChung = new ArrayList<BaiHat>();
+        dsBaiHatChung.add(baiHatChungQT);
         // Ghép bài hát cá nhân với các thành viên
         HashMap<AnhTai, BaiHat> baiHatRiengQT = new HashMap<>();
         baiHatRiengQT.put(truongTheVinh, baiHatQT1);
@@ -423,15 +437,18 @@ public class Test {
         bangDiemCaNhanQT.put(truongTheVinh, 0);
         bangDiemCaNhanQT.put(lienBinhPhat, 0);
         bangDiemCaNhanQT.put(nguyenTranDuyNhat, 0);
-        // Danh sách thành viên bị loại
-        ArrayList<AnhTai> dsAnhTaiQTLoai = new ArrayList<>();
         // Tạo nhóm Quý Ông Đa Tình
-        Nhom nhomQuyOngDaTinh = new Nhom("Quý Ông Đa Tình", quyOngDaTinh, baiHatRiengQT, baiHatChungQT, 0, bangDiemCaNhanQT, dsAnhTaiQTLoai, null);
-//        System.out.println(anhTaiList);
-        //CÔNG DIỄN 1
-        LinkedList<AnhTai> dsAnhTaiBiLoai = new LinkedList<>();
+        Nhom nhomQuyOngDaTinh = new Nhom("Quý Ông Đa Tình", quyOngDaTinh, dsBaiHatChung, 0, bangDiemCaNhanQT, null);
+        nhomQuyOngDaTinh.setBaiHatRieng(baiHatRiengQT);
+        //CÔNG DIỄN RA MẮT
         HashMap<String, Integer> bangDiemBinhChonCaNhan = new HashMap<>();
+        for (AnhTai anhtai : anhTaiList) {
+        	bangDiemBinhChonCaNhan.put(anhtai.getTenAnhTai(),anhtai.getDiemBinhChon());
+        }
         HashMap<String, Integer> bangDiemHoaLucCaNhan = new HashMap<>();
+        for (AnhTai anhtai : anhTaiList) {
+        	bangDiemBinhChonCaNhan.put(anhtai.getTenAnhTai(),anhtai.getDiemHoaLuc());
+        }
         //Danh sách các nhóm
         ArrayList<Nhom> dsNhom = new ArrayList<>();
         dsNhom.add(nhomAnhTaiHuyenThoai);
@@ -442,16 +459,16 @@ public class Test {
         dsNhom.add(nhomAnhTaiNhamThach);
         dsNhom.add(nhomThanhXuanHocDuong);
         dsNhom.add(nhomNamThanRucLua);
-        CongDien raMatSanKhau = new CongDien("1", "Who Am I",dsNhom, "vote", dsAnhTaiBiLoai, bangDiemBinhChonCaNhan, bangDiemHoaLucCaNhan);
+        CongDien raMatSanKhau = new CongDien("0", "Who Am I",dsNhom, "vote", bangDiemBinhChonCaNhan, bangDiemHoaLucCaNhan);
         bangKieu.setDiem(470,13);
-        tuanHung.setDiem(1260, 18);
-        soobin.setDiem(1190, 48);
-        phanDinhTung.setDiem(1390,14);
-        bbTran.setDiem(880,58);
-        binz.setDiem(1290,41);
-        quocThien.setDiem(1390, 24);
-        junPham.setDiem(1170,55);
-        tienLuat.setDiem(960,46);
+        tuanHung.setDiem(1260, 48);
+        soobin.setDiem(1190, 78);
+        phanDinhTung.setDiem(1390,44);
+        bbTran.setDiem(880,88);
+        binz.setDiem(1290,71);
+        quocThien.setDiem(1390, 54);
+        junPham.setDiem(1170,85);
+        tienLuat.setDiem(960,76);
         kayTran.setDiem(1100,52);
         cuongSeven.setDiem(440,23);
         lienBinhPhat.setDiem(680,25);
@@ -479,10 +496,192 @@ public class Test {
         thienMinh.setDiem(470,26);
         truongTheVinh.setDiem(530,37);
         raMatSanKhau.themDiem(anhTaiList, dsNhom);
-        System.out.println(dsNhom.size());
-        System.out.println(anhTaiList);
+        System.out.println("////////////////////////VÒNG RA MẮT///////////////////////////");
+        System.out.printf("%-20s | %-15s | %-20s%n", "Tên Anh Tài", "Điểm Bình Chọn", "Điểm Hỏa Lực Cá Nhân");
+        System.out.println("--------------------------------------------------------------");
 
+     
+        for (AnhTai anhtai : anhTaiList) {
+            System.out.printf("%-20s | %-15d | %-20d%n",
+                anhtai.getTenAnhTai(),
+                anhtai.getDiemBinhChon(),
+                anhtai.getDiemHoaLuc()
+            );
+        }
+     
+        //CÔNG DIỄN 1
+        
+        System.out.println("////////////////////////CÔNG DIỄN 1///////////////////////////");
+        	//Nhà Đam Mê
+        	LinkedList<AnhTai> dsDamMe = new LinkedList<AnhTai>();
+        	dsDamMe.add(tuanHung);
+        	dsDamMe.add(nguyenTranDuyNhat);
+        	dsDamMe.add(lienBinhPhat);
+        	dsDamMe.add(trongHieu);
+        	BaiHat baiHatDM = new BaiHat("Ba kể con nghe & Dưới ánh đèn sân khấu", "Nguyễn Hải Phong, Hứa Kim Tuyền, Charles, Trọng Hiếu", "SlimV", null);
+        	ArrayList<BaiHat> dsBaiHatChungDM = new ArrayList<BaiHat>();
+        	dsBaiHatChungDM.add(baiHatDM);
+        	HashMap<AnhTai, Integer> bangDiemCaNhanDM = new HashMap<>();
+			for (AnhTai anhtai : dsDamMe){
+        		bangDiemCaNhanDM.put(anhtai, anhtai.getDiemHoaLuc());
+        	}
+	
+        	Nhom nhaDamMe = new Nhom("Đam Mê", dsDamMe, dsBaiHatChungDM, 2330, bangDiemCaNhanDM, trongHieu);
+        	// Nhà Hát
+        	LinkedList<AnhTai> dsHat = new LinkedList<AnhTai>();
+        	dsHat.add(thanhTrung);
+        	dsHat.add(haLe);
+        	dsHat.add(doHoangHiep);
+        	dsHat.add(quocThien);
+        	dsHat.add(kienUng);
+        	BaiHat baiHatHat = new BaiHat("Một lần dang dở & Đi qua cầu vồng", "Nhật Ngân, Mặc Thế Nhân, Phúc Bồ, Rick, Hà Lê, Đỗ Hoàng Hiệp, Kiên Ưng", "SlimV", null);
+        	ArrayList<BaiHat> dsBaiHatChungHat = new ArrayList<BaiHat>();
+        	dsBaiHatChungHat.add(baiHatHat);
+        	HashMap<AnhTai, Integer> bangDiemCaNhanHat = new HashMap<>();
+        	for (AnhTai anhtai : dsHat){
+        	    bangDiemCaNhanHat.put(anhtai, anhtai.getDiemHoaLuc());
+        	}
+        	Nhom nhaHat = new Nhom("Hát", dsHat, dsBaiHatChungHat, 1970, bangDiemCaNhanHat, thanhTrung);
 
+        	// Nhà Ngũ Hành
+        	LinkedList<AnhTai> dsNguHanh = new LinkedList<AnhTai>();
+        	dsNguHanh.add(phamKhanhHung);
+        	dsNguHanh.add(truongTheVinh);
+        	dsNguHanh.add(junPham);
+        	dsNguHanh.add(bbTran);
+        	dsNguHanh.add(huyR);
+        	BaiHat baiHatNguHanh = new BaiHat("Vợ người ta & Chuyện ba người", "Phan Mạnh Quỳnh, Quốc Dũng, HuyR", "SlimV", null);
+        	ArrayList<BaiHat> dsBaiHatChungNguHanh = new ArrayList<BaiHat>();
+        	dsBaiHatChungNguHanh.add(baiHatNguHanh);
+        	HashMap<AnhTai, Integer> bangDiemCaNhanNguHanh = new HashMap<>();
+        	for (AnhTai anhtai : dsNguHanh){
+        	    bangDiemCaNhanNguHanh.put(anhtai, anhtai.getDiemHoaLuc());
+        	}
+        	Nhom nhaNguHanh = new Nhom("Ngũ Hành", dsNguHanh, dsBaiHatChungNguHanh, 2470, bangDiemCaNhanNguHanh, junPham);
+
+        	// Nhà Tái Sinh
+        	LinkedList<AnhTai> dsTaiSinh = new LinkedList<AnhTai>();
+        	dsTaiSinh.add(dinhTienDat);
+        	dsTaiSinh.add(tienLuat);
+        	dsTaiSinh.add(rhymastic);
+        	dsTaiSinh.add(tuLong);
+        	BaiHat baiHatTaiSinh = new BaiHat("Lột xác & Chuyện nhỏ", "Nguyễn Hải Phong, Tuấn Khanh, Rhymastic", "SlimV", null);
+        	ArrayList<BaiHat> dsBaiHatChungTaiSinh = new ArrayList<BaiHat>();
+        	dsBaiHatChungTaiSinh.add(baiHatTaiSinh);
+        	HashMap<AnhTai, Integer> bangDiemCaNhanTaiSinh = new HashMap<>();
+        	for (AnhTai anhtai : dsTaiSinh){
+        	    bangDiemCaNhanTaiSinh.put(anhtai, anhtai.getDiemHoaLuc());
+        	}
+        	Nhom nhaTaiSinh = new Nhom("Tái Sinh", dsTaiSinh, dsBaiHatChungTaiSinh, 1580, bangDiemCaNhanTaiSinh, dinhTienDat);
+
+        	// Nhà Sao Sáng
+        	LinkedList<AnhTai> dsSaoSang = new LinkedList<AnhTai>();
+        	dsSaoSang.add(cuongSeven);
+        	dsSaoSang.add(soobin);
+        	dsSaoSang.add(hongSon);
+        	BaiHat baiHatSaoSang = new BaiHat("Trống cơm", "Dân ca Bắc Bộ, Charles, APJ, Soobin", "SlimV", null);
+        	ArrayList<BaiHat> dsBaiHatChungSaoSang = new ArrayList<BaiHat>();
+        	dsBaiHatChungSaoSang.add(baiHatSaoSang);
+        	HashMap<AnhTai, Integer> bangDiemCaNhanSaoSang = new HashMap<>();
+        	for (AnhTai anhtai : dsSaoSang){
+        	    bangDiemCaNhanSaoSang.put(anhtai, anhtai.getDiemHoaLuc());
+        	}
+        	Nhom nhaSaoSang = new Nhom("Sao Sáng", dsSaoSang, dsBaiHatChungSaoSang, 1860, bangDiemCaNhanSaoSang, cuongSeven);
+
+        	// Nhà Xuân Hạ Thu Đông
+        	LinkedList<AnhTai> dsXuanHaThuDong = new LinkedList<AnhTai>();
+        	dsXuanHaThuDong.add(bangKieu);
+        	dsXuanHaThuDong.add(binz);
+        	dsXuanHaThuDong.add(stSonThach);
+        	BaiHat baiHatXuanHaThuDong = new BaiHat("Tỉnh thức sau giấc ngủ đông", "Kai Đinh, Grey D, Binz", "SlimV", null);
+        	ArrayList<BaiHat> dsBaiHatChungXuanHaThuDong = new ArrayList<BaiHat>();
+        	dsBaiHatChungXuanHaThuDong.add(baiHatXuanHaThuDong);
+        	HashMap<AnhTai, Integer> bangDiemCaNhanXuanHaThuDong = new HashMap<>();
+        	for (AnhTai anhtai : dsXuanHaThuDong){
+        	    bangDiemCaNhanXuanHaThuDong.put(anhtai, anhtai.getDiemHoaLuc());
+        	}
+        	Nhom nhaXuanHaThuDong = new Nhom("Xuân Hạ Thu Đông", dsXuanHaThuDong, dsBaiHatChungXuanHaThuDong, 1830, bangDiemCaNhanXuanHaThuDong, bangKieu);
+
+        	// Nhà KK
+        	LinkedList<AnhTai> dsKK = new LinkedList<AnhTai>();
+        	dsKK.add(phanDinhTung);
+        	dsKK.add(dangKhoi);
+        	dsKK.add(nekoLe);
+        	dsKK.add(tangPhuc);
+        	dsKK.add(kayTran);
+        	BaiHat baiHatKK = new BaiHat("Dịu dàng đến từng phút giây & Bước đến bên em", "Lương Bằng Quang, Khắc Hưng, Neko Lê, Kay Trần", "SlimV", null);
+        	ArrayList<BaiHat> dsBaiHatChungKK = new ArrayList<BaiHat>();
+        	dsBaiHatChungKK.add(baiHatKK);
+        	HashMap<AnhTai, Integer> bangDiemCaNhanKK = new HashMap<>();
+        	for (AnhTai anhtai : dsKK){
+        	    bangDiemCaNhanKK.put(anhtai, anhtai.getDiemHoaLuc());
+        	}
+        	Nhom nhaKK = new Nhom("KK", dsKK, dsBaiHatChungKK, 1260, bangDiemCaNhanKK, phanDinhTung);
+
+        	// Nhà Xương Rồng
+        	LinkedList<AnhTai> dsXuongRong = new LinkedList<AnhTai>();
+        	dsXuongRong.add(thienMinh);
+        	dsXuongRong.add(thanhDuy);
+        	dsXuongRong.add(buiCongNam);
+        	dsXuongRong.add(duyKhanh);
+        	BaiHat baiHatXuongRong = new BaiHat("Áo mùa đông & Trở về", "Đỗ Nhuận, Dương Thụ, Bùi Công Nam", "SlimV", null);
+        	ArrayList<BaiHat> dsBaiHatChungXuongRong = new ArrayList<BaiHat>();
+        	dsBaiHatChungXuongRong.add(baiHatXuongRong);
+        	HashMap<AnhTai, Integer> bangDiemCaNhanXuongRong = new HashMap<>();
+        	for (AnhTai anhtai : dsXuongRong){
+        	    bangDiemCaNhanXuongRong.put(anhtai, anhtai.getDiemHoaLuc());
+        	}
+        	Nhom nhaXuongRong = new Nhom("Xương Rồng", dsXuongRong, dsBaiHatChungXuongRong, 1600, bangDiemCaNhanXuongRong, duyKhanh);
+        	ArrayList<Nhom> dsNhaCD1 = new ArrayList<Nhom>();
+        	dsNhaCD1.add(nhaDamMe);
+        	dsNhaCD1.add(nhaHat);
+        	dsNhaCD1.add(nhaKK);
+        	dsNhaCD1.add(nhaNguHanh);
+        	dsNhaCD1.add(nhaSaoSang);
+        	dsNhaCD1.add(nhaTaiSinh);
+        	dsNhaCD1.add(nhaXuanHaThuDong);
+        	dsNhaCD1.add(nhaXuongRong);
+        	CongDien CongDien1 = new CongDien("1", "Người thiếu niên thuở nào",dsNhaCD1, "vote", bangDiemBinhChonCaNhan, bangDiemHoaLucCaNhan);
+        	System.out.printf("| %-15s | %-105s | %-50s | %-12s | %-12s |\n", "Tên nhà", "Bài hát biểu diễn (Tác giả)", "Thành viên", "Điểm ban đầu", "Điểm cuối cùng");
+        	for(Nhom nha : dsNhaCD1) {
+        		for (AnhTai anhtai : nha.getDsAnhTai()) {
+        			int diemBanDau = nha.getDiemBinhChon();
+        			int diemCuoiCung= 0;
+        		
+        			switch (nha.getTenNhom()){
+        				case "Đam mê":
+	        				diemCuoiCung = 760;
+	        				break;
+        				case "Hát":
+        					diemCuoiCung = 650;
+        					break;
+        				case "KK":
+        					diemCuoiCung = 1060;
+        					break;
+        				case "Ngũ Hành":
+        					diemCuoiCung = 1660;
+        					break;
+        				case "Sao Sáng":
+        					diemCuoiCung = 1490;
+        					break;
+        				case "Tái Sinh":
+        					diemCuoiCung = 900;
+        					break;
+        				case "Xuân Hạ Thu Đông":
+        					diemCuoiCung = 1680;
+        					break;
+        				case "Xương Rồng":
+        					diemCuoiCung = 1750;
+        					break;
+        			}
+        			System.out.printf("| %-15s | %-60s | %-50s | %-12d | %-14d |\n",
+                            nha.getTenNhom(),
+                            nha.getBaiHatChung(),
+                            anhtai.getTenAnhTai(),
+                            diemBanDau,
+                            anhtai.getDiemHoaLuc());
+        		}
+        	}
 
     }
 }
