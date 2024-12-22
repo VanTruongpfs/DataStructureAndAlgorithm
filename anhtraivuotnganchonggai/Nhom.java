@@ -1,4 +1,4 @@
-package Exercise1.src.anhtraivuotnganchonggai;
+package anhtraivuotnganchonggai;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,19 +8,19 @@ public class Nhom {
     private String tenNhom;
     private LinkedList<AnhTai> dsAnhTai = new LinkedList<>();
     private HashMap<AnhTai, BaiHat> baiHatRieng;
-    private BaiHat baiHatChung;
+    private ArrayList<BaiHat> baiHatChung;
     private int diemBinhChon;
-    private HashMap<AnhTai, Integer> bangDiemBinhChonThanhVien = new HashMap<>();
-    private ArrayList<AnhTai> dsThanhVienBiLoai = new ArrayList<>();
+    private HashMap<AnhTai, Integer> bangDiemBinhChonThanhVien;
+    private ArrayList<AnhTai> dsThanhVienBiLoai;
     private AnhTai truongNhom;
-    public Nhom(String tenNhom, LinkedList<AnhTai> dsAnhTai, HashMap<AnhTai, BaiHat> baiHatRieng, BaiHat baiHatChung, int diemBinhChon, HashMap<AnhTai, Integer> bangDiemBinhChonThanhVien, ArrayList<AnhTai> dsThanhVienBiLoai, AnhTai truongNhom) {
+    public Nhom(String tenNhom, LinkedList<AnhTai> dsAnhTai, ArrayList<BaiHat> baiHatChung, int diemBinhChon, HashMap<AnhTai, Integer> bangDiemBinhChonThanhVien, AnhTai truongNhom) {
         this.tenNhom = tenNhom;
         this.dsAnhTai = dsAnhTai;
-        this.baiHatRieng = baiHatRieng;
+        this.baiHatRieng = new HashMap<AnhTai, BaiHat>();
         this.baiHatChung = baiHatChung;
         this.diemBinhChon = diemBinhChon;
         this.bangDiemBinhChonThanhVien = bangDiemBinhChonThanhVien;
-        this.dsThanhVienBiLoai = dsThanhVienBiLoai;
+        this.dsThanhVienBiLoai = new ArrayList<AnhTai>();
         this.truongNhom = truongNhom;
     }
     public String getTenNhom() {
@@ -32,7 +32,13 @@ public class Nhom {
     public HashMap<AnhTai, BaiHat> getBaiHat() {
         return baiHatRieng;
     }
-    public int getDiemBinhChon() {
+    public HashMap<AnhTai, BaiHat> getBaiHatRieng() {
+		return baiHatRieng;
+	}
+	public ArrayList<BaiHat> getBaiHatChung() {
+		return baiHatChung;
+	}
+	public int getDiemBinhChon() {
         return diemBinhChon;
     }
     public HashMap<AnhTai, Integer> getBangDiemBinhChonThanhVien() {
@@ -56,7 +62,7 @@ public class Nhom {
         this.baiHatRieng = baiHatRieng;
     }
 
-    public void setBaiHatChung(BaiHat baiHatChung) {
+    public void setBaiHatChung(ArrayList<BaiHat> baiHatChung) {
         this.baiHatChung = baiHatChung;
     }
 
@@ -76,12 +82,10 @@ public class Nhom {
         this.truongNhom = truongNhom;
     }
     //loại thành viên
-    public void loaiThanhVien(LinkedList<AnhTai> dsThanhVienBiLoai, ArrayList<AnhTai> dsThanhVien, AnhTai anhTaiBiLoai) {
-        for (AnhTai anhTai : dsThanhVien) {
-          if(anhTai.equals(anhTaiBiLoai)) {
-              dsThanhVien.remove(anhTai);
-              dsThanhVienBiLoai.add(anhTai);
-          }
+    public void loaiThanhVien(AnhTai anhTaiBiLoai) {
+        if(this.dsAnhTai.contains(anhTaiBiLoai)) {
+        	dsAnhTai.remove(anhTaiBiLoai);
+        	dsThanhVienBiLoai.add(anhTaiBiLoai);
         }
     }
     //thêm thành viên
