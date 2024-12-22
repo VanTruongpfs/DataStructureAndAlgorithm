@@ -644,9 +644,10 @@ public class Test {
         	CongDien CongDien1 = new CongDien("1", "Người thiếu niên thuở nào",dsNhaCD1, "vote", bangDiemBinhChonCaNhan, bangDiemHoaLucCaNhan);
         	System.out.printf("| %-15s | %-105s | %-50s | %-12s | %-12s |\n", "Tên nhà", "Bài hát biểu diễn (Tác giả)", "Thành viên", "Điểm ban đầu", "Điểm cuối cùng");
         	for(Nhom nha : dsNhaCD1) {
+        		int diemCuoiCung= 0;
         		for (AnhTai anhtai : nha.getDsAnhTai()) {
         			int diemBanDau = nha.getDiemBinhChon();
-        			int diemCuoiCung= 0;
+        		
         		
         			switch (nha.getTenNhom()){
         				case "Đam mê":
@@ -679,9 +680,9 @@ public class Test {
                             nha.getBaiHatChung(),
                             anhtai.getTenAnhTai(),
                             diemBanDau,
-                            anhtai.getDiemHoaLuc());
+                            diemCuoiCung);
         		}
-        		nha.setDiemBinhChon(diemCuoiCung);
+				nha.setDiemBinhChon(diemCuoiCung);
         	}
 
     }
