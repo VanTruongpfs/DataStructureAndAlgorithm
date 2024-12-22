@@ -681,6 +681,7 @@ public class Test {
                             diemBanDau,
                             anhtai.getDiemHoaLuc());
         		}
+        		nha.setDiemBinhChon(diemCuoiCung);
         	}
 
     }
