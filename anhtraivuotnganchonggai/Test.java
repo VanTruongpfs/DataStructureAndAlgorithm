@@ -1,7 +1,4 @@
-package anhtraivuotnganchonggai;
-
-
-import java.lang.classfile.instruction.SwitchCase;
+package Exercise1.src.anhtraivuotnganchonggai;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -647,8 +644,6 @@ public class Test {
         		int diemCuoiCung= 0;
         		for (AnhTai anhtai : nha.getDsAnhTai()) {
         			int diemBanDau = nha.getDiemBinhChon();
-        		
-        		
         			switch (nha.getTenNhom()){
         				case "Đam mê":
 	        				diemCuoiCung = 760;
@@ -684,6 +679,86 @@ public class Test {
         		}
 				nha.setDiemBinhChon(diemCuoiCung);
         	}
+        System.out.println("////////////////////////Công diễn 2///////////////////////////");
+            //danh sach bai hat chung
+        ArrayList<BaiHat> dsBaiHatChungCD2 = new ArrayList<>();
+        BaiHat baiHatCuuLong1 = new BaiHat("Giàu sang", "Rhymastic, Kay Trần" , "SlimV", null);
+        BaiHat baiHatCuuLong2 = new BaiHat("Nếu một mai tôi bay lên trời","Hứa Kim Tuyền, Jun Phạm", "SlimV", null);
+        dsBaiHatChungCD2.add(baiHatCuuLong1);
+        dsBaiHatChungCD2.add(baiHatCuuLong2);
+         LinkedList<AnhTai> cuuLong = new LinkedList<>();
+         for (Nhom nha : dsNhaCD1){
+             if(nha.getTenNhom().equals("Ngũ Hành") || nha.getTenNhom().equals("Hát")){
+                 cuuLong.addAll(nha.getDsAnhTai());
+             }
+         }
+        //Bang diem ca nhan Cuu Long
+        HashMap<AnhTai, Integer> bangDiemCaNhanCuuLong = new HashMap<>();
+         for (AnhTai anhtai : cuuLong){
+             bangDiemCaNhanCuuLong.put(anhtai,anhtai.getDiemHoaLuc());
+         }
+         ArrayList<AnhTai> dsAnhTaiCLLoai = new ArrayList<>();
+         Nhom nhaCuuLong = new Nhom("Cửu Long", cuuLong, dsBaiHatChungCD2, 2710, bangDiemCaNhanCuuLong, junPham);
+        //Tinh Tứu
+         LinkedList<AnhTai> tinhTu = new LinkedList<>();
+         for (Nhom nha : dsNhaCD1){
+             if(nha.getTenNhom().equals("Tái Sinh") || nha.getTenNhom().equals("Sao Sáng")){
+                 tinhTu.addAll(nha.getDsAnhTai());
+             }
+         }
+        HashMap<AnhTai, Integer> bangDiemCaNhanTT = new HashMap<>();
+        for (AnhTai anhtai : tinhTu){
+            bangDiemCaNhanTT.put(anhtai,anhtai.getDiemHoaLuc());
+        }
+         ArrayList<AnhTai> dsAnhTaiTTLoai = new ArrayList<>();
+        Nhom nhaTinhTuu = new Nhom("Tinh Tu", tinhTu, dsBaiHatChungCD2,4620, bangDiemCaNhanTT,dinhTienDat);
+        //Kame
+         LinkedList<AnhTai> kame = new LinkedList<>();
+         for (Nhom nha : dsNhaCD1){
+             if(nha.getTenNhom().equals("KK") || nha.getTenNhom().equals("Đam mê")){
+                 kame.addAll(nha.getDsAnhTai());
+             }
+         }
+        HashMap<AnhTai, Integer> bangDiemCaNhanKM = new HashMap<>();
+        for (AnhTai anhtai : kame){
+            bangDiemCaNhanKM.put(anhtai,anhtai.getDiemHoaLuc());
+        }
+        ArrayList<AnhTai> dsAnhTaiKMLoai = new ArrayList<>();
+        Nhom nhaKame = new Nhom("Kame", tinhTu, dsBaiHatChungCD2,3350, bangDiemCaNhanKM,kayTran);
+        //Phát Tài
+         LinkedList<AnhTai> phatTai = new LinkedList<>();
+         for (Nhom nha : dsNhaCD1){
+             if(nha.getTenNhom().equals("Xương Rồng") || nha.getTenNhom().equals("Xuân Hạ Thu Đông")){
+                 phatTai.addAll(nha.getDsAnhTai());
+             }
+         }
+        HashMap<AnhTai, Integer> bangDiemCaNhanPT = new HashMap<>();
+        for (AnhTai anhtai : phatTai){
+            bangDiemCaNhanPT.put(anhtai,anhtai.getDiemHoaLuc());
+        }
+        ArrayList<AnhTai> dsAnhTaiPTLoai = new ArrayList<>();
+        Nhom nhaPhatTai = new Nhom("Phát Tài", phatTai, dsBaiHatChungCD2,2920, bangDiemCaNhanPT,bangKieu);
+         // danh sách liên minh
+        ArrayList<Nhom> dsNhaCD2 = new ArrayList<>();
+        dsNhaCD2.add(nhaCuuLong);
+        dsNhaCD2.add(nhaKame);
+        dsNhaCD2.add(nhaPhatTai);
+        dsNhaCD2.add(nhaTinhTuu);
 
+        CongDien congDien2 = new CongDien("2", "Lời nhắn từ vũ trụ",dsNhaCD2, "vote", bangDiemBinhChonCaNhan, bangDiemHoaLucCaNhan);
+        LinkedList<AnhTai> dsAnhTaiBiLoai = new LinkedList<>();
+        congDien2.loaiThanhVien(dsNhaCD2, dsAnhTaiBiLoai);
+        System.out.printf("| %-15s | %-105s | %-50s | %-12s | %-12s |\n", "Tên nhà", "Bài hát biểu diễn (Tác giả)", "Thành viên", "Điểm ban đầu", "Điểm cuối cùng");
+        for(Nhom nha : dsNhaCD2) {
+            for (AnhTai anhtai : nha.getDsAnhTai()) {
+                int diemBanDau = nha.getDiemBinhChon();
+                System.out.printf("| %-15s | %-60s | %-50s | %-12d | %-14d |\n",
+                        nha.getTenNhom(),
+                        nha.getBaiHatChung(),
+                        anhtai.getTenAnhTai(),
+                        diemBanDau,
+                        anhtai.getDiemHoaLuc());
+            }
+        }
     }
 }

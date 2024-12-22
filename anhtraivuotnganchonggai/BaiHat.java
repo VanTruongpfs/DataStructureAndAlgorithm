@@ -13,6 +13,7 @@ public class BaiHat {
     }
 
     public String getTenBaiHat() {
+
         return tenBaiHat;
     }
     public String getNhacSi() {
@@ -23,5 +24,10 @@ public class BaiHat {
     }
     public String getYeuCau() {
         return yeuCau;
+    }
+
+    @Override
+    public String toString() {
+        return "BaiHat";
     }
 }
