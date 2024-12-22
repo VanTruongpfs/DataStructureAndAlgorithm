@@ -1,4 +1,5 @@
-package Exercise1.src.anhtraivuotnganchonggai;
+package anhtraivuotnganchonggai;
+
 
 
 import java.util.ArrayList;
@@ -15,12 +16,12 @@ public class CongDien {
     private HashMap<String, Integer> bangDiemBinhChonCaNhan = new HashMap<>();
     private HashMap<String, Integer> bangDiemHoaLucCaNhan = new HashMap<>();
 
-    public CongDien(String id, String chuDe, ArrayList<Nhom> dsNhom, String cachTinhDiem, LinkedList<AnhTai> dsAnhTaiBiLoai, HashMap<String, Integer> bangDiemBinhChonCaNhan, HashMap<String, Integer> bangDiemHoaLucCaNhan) {
+    public CongDien(String id, String chuDe, ArrayList<Nhom> dsNhom, String cachTinhDiem, HashMap<String, Integer> bangDiemBinhChonCaNhan, HashMap<String, Integer> bangDiemHoaLucCaNhan) {
         this.id = id;
         this.chuDe = chuDe;
         this.dsNhom = dsNhom;
         this.cachTinhDiem = cachTinhDiem;
-        this.dsAnhTaiBiLoai = dsAnhTaiBiLoai;
+        this.dsAnhTaiBiLoai = new LinkedList<AnhTai>();
         this.bangDiemBinhChonCaNhan = bangDiemBinhChonCaNhan;
         this.bangDiemHoaLucCaNhan = bangDiemHoaLucCaNhan;
     }
